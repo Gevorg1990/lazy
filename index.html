@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		.active{}
+
+	</style>
+</head>
+<body>
+
+
+
+	<div class="container">
+		<div style="width: 400px; height: 400px;" class="img-box">
+			<img width="100%" data-img='./img/1.jpg' src="./img/1.jpg" alt="">
+		</div>
+		<p style="width: 100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere aperiam hic porro magnam ab unde voluptatem numquam odio facilis consequuntur quod atque commodi suscipit laborum quibusdam quidem, quaerat molestias, ipsam voluptatum velit. Ad, fugiat, soluta? Voluptas veritatis, ad in cumque sapiente atque molestiae animi! Culpa aliquam alias porro quidem voluptatem, illum fuga deleniti totam sed nisi! Consequuntur quibusdam, autem repellendus libero. Tempora nobis, facilis veritatis placeat voluptatum natus iste architecto id mollitia illum, repellat suscipit, obcaecati eos consequatur impedit vitae optio quam consequuntur. Itaque veniam vero consequuntur illo recusandae voluptate possimus, sit, minus error ad quasi tenetur, dolor expedita aperiam!</p>
+
+		<div style="width: 400px; height: 400px;" class="img-box">
+		<img width="100%" data-img='./img/2.jpg' src="" alt="">
+			
+		</div>
+
+		<div style="width: 400px; height: 400px;" class="img-box">
+			<img width="100%" data-img='./img/3.jpg' src="" alt="">
+			
+		</div>
+
+		<div style="width: 400px; height: 400px; " class="img-box">
+            <img width="100%" data-img='./img/4.jpg'  src="" alt="">
+			
+		</div>
+		
+	</div>
+
+	<script>
+
+		const images = document.querySelectorAll('img');
+
+		
+
+		function imgFunc(e){
+
+			var Y = window.scrollY;
+			var H = window.innerHeight;
+
+			images.forEach( ( elem ) => {
+			
+				var elemTop = elem.getBoundingClientRect().top;
+
+				var elemHeight = elem.getBoundingClientRect().height;
+		       
+		          if( ( elemTop < H && elem.class !== 'active'  ) ) {
+		              elem.src = elem.getAttribute('data-img');
+		              elem.classList.add('active')
+		         
+		           }
+
+
+		    })
+		  
+
+		}
+
+		window.onscroll = imgFunc;
+
+	</script>
+	
+</body>
+</html>
